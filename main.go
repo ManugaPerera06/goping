@@ -21,6 +21,16 @@ func checkURL(url string) {
 }
 
 func main() {
-	checkURL("https://www.formula1.com/")
-	checkURL("epicgames.com")
+	urls := []string{
+		"https://go.dev",
+		"https://github.com",
+		"https://google.com",
+		"epicgames.com",
+		"https://www.formula1.com/",
+		"https://this-site-does-not-exist-12345.com",
+	}
+
+	for _, url := range urls {
+		checkURL(url)
+	}
 }
