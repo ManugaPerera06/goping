@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -21,15 +22,11 @@ func checkURL(url string) {
 }
 
 func main() {
-	urls := []string{
-		"https://go.dev",
-		"https://github.com",
-		"https://google.com",
-		"epicgames.com",
-		"https://www.formula1.com/",
-		"https://this-site-does-not-exist-12345.com",
+	urls := os.Args[1:]
+	if len(urls) == 0 {
+		fmt.Println("Usage: go run. <url1> <url2> ...")
+		return
 	}
-
 	for _, url := range urls {
 		checkURL(url)
 	}
